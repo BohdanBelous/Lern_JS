@@ -184,34 +184,48 @@ h6 {
   text-align: start;
 }
 
-/* ------------------ */
-.lesson__1 .task {
-  flex: 0 1 30%;
+@media(max-width:750px) {
+  .header__logo {
+    font-size: 30px;
+    margin: 15px 15px;
+  }
+
+  .task {
+    flex: 0 1 100%;
+  }
 }
 
-.lesson__1 .task:last-child {
-  flex: 0 1 auto;
-}
+@media(min-width:750px) {
 
-/* ------------------ */
-.lesson__2 .task {
-  flex: 0 1 30%;
-}
 
-.lesson__2 .task:first-child,
-.lesson__2 .task:nth-child(3) {
-  flex: 0 1 auto;
-}
+  /* ------------------ */
+  .lesson__1 .task {
+    flex: 0 1 30%;
+  }
 
-.lesson__1 .task:last-child {
-  flex: 0 1 auto;
-}
+  .lesson__1 .task:last-child {
+    flex: 0 1 auto;
+  }
 
-/* ------------------ */
-.lesson__3 .task {
-  flex: 0 1 47%;
-}
+  /* ------------------ */
+  .lesson__2 .task {
+    flex: 0 1 30%;
+  }
 
+  .lesson__2 .task:first-child,
+  .lesson__2 .task:nth-child(3) {
+    flex: 0 1 auto;
+  }
+
+  .lesson__1 .task:last-child {
+    flex: 0 1 auto;
+  }
+
+  /* ------------------ */
+  .lesson__3 .task {
+    flex: 0 1 47%;
+  }
+}
 
 /*  */
 .footer__container {
