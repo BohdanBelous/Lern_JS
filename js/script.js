@@ -34,6 +34,65 @@ function l1t4() {
   alert('Площадь прямогульного треугольника со сторонами X: ' + x + ' и Y: ' + y + ' равна ' + s + ' , а его периметр: ' + Math.round(p));
 }
 
+function l2t1() {
+  function script(login) {
+    if (login == null) {
+      alert('Вход отменен')
+    } else
+    if (login != 'admin') {
+      alert('Такого пользователя нет')
+    } else
+    if (login == 'admin') {
+      function password(pass) {
+        if (pass == null) {
+          alert('Вход отменен')
+        } else
+        if (pass != 'qwerty') {
+          alert('Пароль неверен')
+        } else
+        if (pass == 'qwerty') {
+          alert('ПРИВЕТ!')
+        }
+      }
+      password(pass = prompt('Введите пароль'))
+    }
+  }
+  script(login = prompt('Введите логин'));
+}
+
+function l2t2() {
+  let a = login = parseInt(prompt('Введите первое число'))
+  let b = login = parseInt(prompt('Введите первое число'))
+  let c = login = parseInt(prompt('Введите первое число'))
+
+  function script() {
+    if (a == b || a == c || b == c) {
+      alert('Ошибка')
+    } else {
+      let sum = [a, b, c].reduce((a, b) => a + b, 0);
+      let result = sum / [a, b, c].length;
+      alert('Среднее арифметическое будет ' + result);
+    }
+  }
+  script()
+}
+
+function l2t3() {
+  alert('ЕЩЕ НЕ ДЕЛАЛ');
+}
+
+function l2t4() {
+  alert('ЕЩЕ НЕ ДЕЛАЛ');
+}
+
+function l2t5() {
+  alert('ЕЩЕ НЕ ДЕЛАЛ');
+}
+
+function l2t6() {
+  alert('ЕЩЕ НЕ ДЕЛАЛ');
+}
+
 function l0t0() {
   alert('ЕЩЕ НЕ ДЕЛАЛ');
 }
