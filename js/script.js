@@ -82,7 +82,20 @@ function l2t3() {
 }
 
 function l2t4() {
-  alert('ЕЩЕ НЕ ДЕЛАЛ');
+  let n = +prompt('Введите номер числа Фибоначчи') //корректно отображает до №103
+  let a = 0
+  let b = 1
+  let fib
+  if (n == 0) {
+    alert('Нулевой номер ? Ты серьезно ?')
+    return;
+  }
+  for (let i = 2; i <= n; i++) {
+    fib = a + b
+    a = b
+    b = fib
+  }
+  alert('Число Фибоначчи №' + n + ' : ' + a)
 }
 
 function l2t5() {
