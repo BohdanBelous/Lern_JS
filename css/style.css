@@ -1,0 +1,222 @@
+/*NULL*/
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* ---------------------------------------------------------------------------- */
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-family: sans-serif;
+  background: linear-gradient(217deg, rgba(115, 255, 0, 0.8), rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(0, 255, 191, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(183, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+}
+
+/* ---------------------------------------------------------------------------- */
+._container {
+  max-width: 1046px;
+  padding: 0px 15px;
+  margin: 0px auto;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* ---VARIABLES-------------------------------------------------------------------- */
+/* ---HEADER----------------------------------------------------------------------- */
+.header {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+}
+
+.header__logo {
+  margin: 20px 0 0 0;
+  padding: 10px 25px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 48px;
+  color: rgb(255, 196, 0);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
+}
+
+/* ---PAGE------------------------------------------------------------------------- */
+.page {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  margin: 90px 0 20px 0;
+}
+
+.lesson__title {
+  margin: 20px 0 0 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
+  color: rgb(0, 89, 255);
+}
+
+.lesson__subtitle {
+  margin: 10px 0 0 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  color: rgb(255, 0, 0);
+}
+
+.lesson__tasks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.task {
+  margin: 20px 10px 0;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: 3px solid rgb(136, 255, 0);
+  border-radius: 30px;
+  transition: all 0.3s ease 0s;
+}
+
+.task:hover {
+  background: rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0px 4px 10px rgb(136, 255, 0));
+}
+
+.task__title {
+  text-align: center;
+  font-size: 24px;
+  color: rgb(136, 255, 0);
+}
+
+.task__text {
+  margin: 10px 0 0 0;
+  font-size: 16px;
+  line-height: 130%;
+  text-align: start;
+}
+
+/* ------------------ */
+.lesson__1 .task {
+  flex: 0 1 30%;
+}
+
+.lesson__1 .task:last-child {
+  flex: 0 1 auto;
+}
+
+/* ------------------ */
+.lesson__2 .task {
+  flex: 0 1 30%;
+}
+
+.lesson__2 .task:first-child,
+.lesson__2 .task:nth-child(3) {
+  flex: 0 1 auto;
+}
+
+.lesson__1 .task:last-child {
+  flex: 0 1 auto;
+}
+
+/* ------------------ */
+.lesson__3 .task {
+  flex: 0 1 47%;
+}
+
+
+/*  */
+.footer__container {
+  padding: 0 0 10px 0;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(0, 255, 179);
+}
