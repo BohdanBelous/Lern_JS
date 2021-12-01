@@ -78,7 +78,13 @@ function l2t2() {
 }
 
 function l2t3() {
-  alert('ЕЩЕ НЕ ДЕЛАЛ');
+  let star = "*"
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < i; j++) {
+      document.write(star)
+    }
+    document.write('<br>')
+  }
 }
 
 function l2t4() {
