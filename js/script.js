@@ -78,6 +78,7 @@ function l2t2() {
 }
 
 function l2t3() {
+  document.write('<a style="font-size:55px;" href="index.html">← BACK</a>')
   let star = "*"
   for (let i = 0; i < 10; i++) {
     for (let j = 0; j < i; j++) {
