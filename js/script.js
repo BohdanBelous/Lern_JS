@@ -147,15 +147,20 @@ function l2t6() {
     // }
 
     for (let i = 2; i <= n; i++) {
-      for (let j = 2; j <= i; j++) {
-        if ((i % j == 0) && (j != i)) {
-          break;
-        } else {
-          arr.push(i);
-          break;
+      let flag = 1;
+      if (i > 2 && i % 2 != 0) {
+        for (let j = 3; j * j <= i; j = j + 2) {
+          if (i % j == 0) {
+            flag = 0;
+            break;
+          }
         }
+      } else if (i != 2) flag = 0;
+      if (flag == 1) {
+        arr.push(i);
       }
     }
+
     alert('Вот ваши простые числа : ' + arr)
   } else {
     alert('Шутишь ?')
