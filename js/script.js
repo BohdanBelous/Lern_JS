@@ -1,3 +1,25 @@
+//result
+
+const resultExit = document.querySelector('.result__button');
+const resultBody = document.querySelector('.page__result');
+const resultText = document.getElementById('result_text');
+
+resultExit.addEventListener("click", function (e) {
+  closeResult()
+});
+
+function openResult() {
+  document.body.classList.add('_lock');
+  resultBody.classList.add('result_active');
+}
+
+function closeResult() {
+  document.body.classList.remove('_lock');
+  resultBody.classList.remove('result_active');
+}
+
+//------------------------------------------------------
+
 function l1t1() {
   alert("Сейчас выполним, не ссы");
   let a = prompt("Введите количество дней что бы узнать сколько же там секунд");
@@ -33,13 +55,13 @@ function l1t4() {
   let p = Math.sqrt(x * x + y * y) + x + y;
   alert(
     "Площадь прямогульного треугольника со сторонами X: " +
-      x +
-      " и Y: " +
-      y +
-      " равна " +
-      s +
-      " , а его периметр: " +
-      Math.round(p)
+    x +
+    " и Y: " +
+    y +
+    " равна " +
+    s +
+    " , а его периметр: " +
+    Math.round(p)
   );
 }
 
@@ -83,14 +105,23 @@ function l2t2() {
 }
 
 function l2t3() {
-  document.write('<a style="font-size:55px;" href="index.html">← BACK</a>');
   let star = "*";
-  for (let i = 0; i < 10; i++) {
+  resultText.innerHTML = "";
+  for (let i = 1; i < 10; i++) {
     for (let j = 0; j < i; j++) {
-      document.write(star);
+      resultText.innerHTML += star;
     }
-    document.write("<br>");
+    resultText.innerHTML += "<br>";
   }
+
+  // for (let i = 0; i < 10; i++) {
+  //   for (let j = 0; j < i; j++) {
+  //     document.write(star);
+  //   }
+  //   document.write("<br>");
+  // }
+
+  openResult()
 }
 
 function l2t4() {
@@ -129,13 +160,13 @@ function l2t5() {
     // alert('Сумма чисел между ' + a + ' и ' + b + ' равняется ' + sum +'а вот все нечетные значения в этом промежутке : ' + odd); // между А и В
     alert(
       "Сумма чисел от " +
-        a +
-        " до " +
-        b +
-        " включительно равняется " +
-        sum +
-        " . А вот все нечетные значения в этом промежутке : " +
-        odd
+      a +
+      " до " +
+      b +
+      " включительно равняется " +
+      sum +
+      " . А вот все нечетные значения в этом промежутке : " +
+      odd
     ); //включительно от А до В
   } else {
     for (let i = b; i <= a; i++) {
@@ -146,13 +177,13 @@ function l2t5() {
     }
     alert(
       "Сумма чисел от " +
-        b +
-        " до " +
-        a +
-        " включительно равняется " +
-        sum +
-        " . А вот все нечетные значения в этом промежутке : " +
-        odd
+      b +
+      " до " +
+      a +
+      " включительно равняется " +
+      sum +
+      " . А вот все нечетные значения в этом промежутке : " +
+      odd
     );
   }
 }
@@ -161,6 +192,7 @@ function l2t6() {
   let n = +prompt("ну так введи 150 или какое то еще число");
   let arr = [];
   if (n > 1) {
+
     for (let i = 0; i <= n; i++) {
       let count = 0;
       for (let j = 1; j <= i; j++) {
