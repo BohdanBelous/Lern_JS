@@ -237,14 +237,30 @@ function l2t6() {
 
 
 function l3t1() {
-  let a = [23,2,35,6,5,10,30,45,87,22,6,9,78,7,8];
-  resultText.innerHTML ='Вот такой массив: <br>'+ a + '<br> Индекс в массиве начинается с 0 по этому вот такой ответ : <br>';
+  let a = [23,2,35,6,5,87,22,45,8,98,45,68,75,45,6,9,78,7,8];
+  resultText.innerHTML ='Вот такой массив:<br> [';
+  for (let i=0; i<a.length;i++){
+    if(i<a.length-1){
+    resultText.innerHTML += `${a[i]}, `;
+    }else{
+       resultText.innerHTML += `${a[i]}]`;
+    }
+  }
+  
   for(let i=0; i < a.length; i++){
     if(i%2==0){
       a[i]= '*';
     }
   }
- resultText.innerHTML += a;
+ resultText.innerHTML +='<br> Индекс в массиве начинается с 0 по этому вот такой ответ : <br>[';
+ for (let i = 0; i < a.length; i++) {
+   if (i < a.length - 1) {
+     resultText.innerHTML += `${a[i]}, `;
+   } else {
+     resultText.innerHTML += `${a[i]}]`;
+   }
+ }
+ 
  openResult();
 }
 
