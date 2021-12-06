@@ -336,14 +336,21 @@ function l3t2() {
   }
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function l3t3() {
-  let a = [
-    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-    [5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-    [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-  ];
+  let arr = new Array(5);
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = new Array(10);
+  }
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      arr[i][j] = getRandomInt(100);
+    }
+  }
 
   let maxSum = 0;
   let x;
@@ -351,22 +358,23 @@ function l3t3() {
   let y;
 
   resultText.innerHTML = "Имеем массив: <br>";
-  for (let i = 0; i < a.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     resultText.innerHTML += `<br> (i${i}) [`;
-    for (let j = 0; j < a[i].length; j++) {
-      if (j < a[i].length - 1) {
-        resultText.innerHTML += `${a[i][j]}, `;
+    for (let j = 0; j < arr[i].length; j++) {
+      if (j < arr[i].length - 1) {
+        resultText.innerHTML += `${arr[i][j]}, `;
       } else {
-        resultText.innerHTML += `${a[i][j]}] <br>`;
+        resultText.innerHTML += `${arr[i][j]}] <br>`;
       }
     }
   }
 
-  for (let i = 0; i < a.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     let sum = 0;
-    for (let j = 0; j < a[i].length; j++) {
-      sum += a[i][j];
+    for (let j = 0; j < arr[i].length; j++) {
+      sum += arr[i][j];
     }
+
     if (maxSum < sum) {
       maxSum = sum;
       x = i;
