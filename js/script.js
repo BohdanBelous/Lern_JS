@@ -4,7 +4,7 @@ const resultExit = document.querySelector('.result__button');
 const resultBody = document.querySelector('.page__result');
 const resultText = document.getElementById('result_text');
 
-resultExit.addEventListener("click", function (e) {
+resultExit.addEventListener("click", function(e) {
   closeResult()
 });
 
@@ -237,32 +237,71 @@ function l2t6() {
 
 
 function l3t1() {
-  let a = [23,2,35,6,5,87,22,45,8,98,45,68,75,45,6,9,78,7,8];
-  resultText.innerHTML ='Вот такой массив:<br> [';
-  for (let i=0; i<a.length;i++){
-    if(i<a.length-1){
-    resultText.innerHTML += `${a[i]}, `;
-    }else{
-       resultText.innerHTML += `${a[i]}]`;
+  let a = [23, 2, 35, 6, 5, 87, 22, 45, 8, 98, 45, 68, 75, 45, 6, 9, 78, 7, 8];
+  resultText.innerHTML = 'Вот такой массив:<br> [';
+  for (let i = 0; i < a.length; i++) {
+    if (i < a.length - 1) {
+      resultText.innerHTML += `${a[i]}, `;
+    } else {
+      resultText.innerHTML += `${a[i]}]`;
     }
   }
-  
-  for(let i=0; i < a.length; i++){
-    if(i%2==0){
-      a[i]= '*';
+
+  for (let i = 0; i < a.length; i++) {
+    if (i % 2 == 0) {
+      a[i] = '*';
     }
   }
- resultText.innerHTML +='<br> Индекс в массиве начинается с 0 по этому вот такой ответ : <br>[';
- for (let i = 0; i < a.length; i++) {
-   if (i < a.length - 1) {
-     resultText.innerHTML += `${a[i]}, `;
-   } else {
-     resultText.innerHTML += `${a[i]}]`;
-   }
- }
- 
- openResult();
+  resultText.innerHTML += '<br> Индекс в массиве начинается с 0 по этому вот такой ответ : <br>[';
+  for (let i = 0; i < a.length; i++) {
+    if (i < a.length - 1) {
+      resultText.innerHTML += `${a[i]}, `;
+    } else {
+      resultText.innerHTML += `${a[i]}]`;
+    }
+  }
+
+  openResult();
 }
+
+function l3t2() {
+  let n = +prompt('какой размер массива вы хотите?');
+  let arr = [];
+  if (isNaN(n) || n < 1) {
+    alert('Ну не гони..Это же размер');
+  } else {
+    let counter = 0;
+
+    function fun() {
+      for (let i = counter; i < n;) {
+        let a = +prompt(`введите ${i+1}-е число`);
+        if (isNaN(a) || a < 0) {
+          alert('не подходит');
+          fun()
+          break
+        } else {
+          arr.push(a)
+          i++
+          counter=i
+        }
+      }
+    }
+    fun()
+    if (arr.length >= 1) {
+      resultText.innerHTML = 'Ну вот такой вот массив получился: <br> [';
+      for (let i = 0; i < arr.length; i++) {
+        if (i < arr.length - 1) {
+          resultText.innerHTML += `${arr[i]}, `;
+        } else {
+          resultText.innerHTML += `${arr[i]}]`;
+        }
+      }
+      openResult()
+    }
+  }
+}
+
+
 
 
 function l0t0() {
