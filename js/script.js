@@ -1,24 +1,24 @@
 //result
 
-const resultExit = document.querySelector('.result__button');
-const resultBody = document.querySelector('.page__result');
-const resultText = document.getElementById('result_text');
+const resultExit = document.querySelector(".result__button");
+const resultBody = document.querySelector(".page__result");
+const resultText = document.getElementById("result_text");
 
 resultExit.addEventListener("click", function (e) {
-  closeResult()
+  closeResult();
 });
 // resultBody.addEventListener("click", function (e) {
 //   closeResult()
 // });
 
 function openResult() {
-  document.body.classList.add('_lock');
-  resultBody.classList.add('result_active');
+  document.body.classList.add("_lock");
+  resultBody.classList.add("result_active");
 }
 
 function closeResult() {
-  document.body.classList.remove('_lock');
-  resultBody.classList.remove('result_active');
+  document.body.classList.remove("_lock");
+  resultBody.classList.remove("result_active");
 }
 
 //LESSON 1------------------------------------------
@@ -72,7 +72,9 @@ function l1t4() {
   //   " , а его периметр: " +
   //   Math.round(p)
   // );
-  resultText.innerHTML = `Площадь прямогульного треугольника со сторонами X: ${x} и Y: ${y} равна ${s} , а его периметр: ${Math.round(p)}`;
+  resultText.innerHTML = `Площадь прямогульного треугольника со сторонами X: ${x} и Y: ${y} равна ${s} , а его периметр: ${Math.round(
+    p
+  )}`;
   openResult();
 }
 
@@ -92,7 +94,7 @@ function l2t1() {
           alert("Пароль неверен");
         } else if (pass == "qwerty") {
           // alert("ПРИВЕТ!");
-          resultText.innerHTML = 'Привет!';
+          resultText.innerHTML = "Привет!";
           openResult();
         }
       }
@@ -138,7 +140,7 @@ function l2t3() {
   //   document.write("<br>");
   // }
 
-  openResult()
+  openResult();
 }
 
 function l2t4() {
@@ -218,7 +220,6 @@ function l2t6() {
   let n = +prompt("ну так введи 150 или какое то еще число");
   let arr = [];
   if (n > 1) {
-
     for (let i = 0; i <= n; i++) {
       let count = 0;
       for (let j = 1; j <= i; j++) {
@@ -256,12 +257,11 @@ function l2t6() {
     // }
 
     // alert("Вот ваши простые числа : " + arr);
-    resultText.innerHTML = 'Вот ваши простые числа : <br>';
+    resultText.innerHTML = "Вот ваши простые числа : <br>";
     for (let i = 0; i < arr.length; i++) {
       resultText.innerHTML += `${arr[i]}, `;
     }
     openResult();
-
   } else {
     alert("Шутишь ?");
   }
@@ -271,7 +271,7 @@ function l2t6() {
 
 function l3t1() {
   let a = [23, 2, 35, 6, 5, 87, 22, 45, 8, 98, 45, 68, 75, 45, 6, 9, 78, 7, 8];
-  resultText.innerHTML = 'Вот такой массив:<br> [';
+  resultText.innerHTML = "Вот такой массив:<br> [";
   for (let i = 0; i < a.length; i++) {
     if (i < a.length - 1) {
       resultText.innerHTML += `${a[i]}, `;
@@ -282,10 +282,11 @@ function l3t1() {
 
   for (let i = 0; i < a.length; i++) {
     if (i % 2 == 0) {
-      a[i] = '*';
+      a[i] = "*";
     }
   }
-  resultText.innerHTML += '<br> Индекс в массиве начинается с 0 по этому вот такой ответ : <br>[';
+  resultText.innerHTML +=
+    "<br> Индекс в массиве начинается с 0 по этому вот такой ответ : <br>[";
   for (let i = 0; i < a.length; i++) {
     if (i < a.length - 1) {
       resultText.innerHTML += `${a[i]}, `;
@@ -298,18 +299,18 @@ function l3t1() {
 }
 
 function l3t2() {
-  let n = +prompt('какой размер массива вы хотите?');
+  let n = +prompt("какой размер массива вы хотите?");
   let arr = [];
   if (isNaN(n) || n < 1) {
-    alert('Ну не гони..Это же размер');
+    alert("Ну не гони..Это же размер");
   } else {
     let counter = 0;
 
     function fun() {
-      for (let i = counter; i < n;) {
-        let a = +prompt(`введите ${i+1}-е число`);
+      for (let i = counter; i < n; ) {
+        let a = +prompt(`введите ${i + 1}-е число`);
         if (isNaN(a) || a < 0) {
-          alert('не подходит');
+          alert("не подходит");
           fun();
           break;
         } else {
@@ -322,7 +323,7 @@ function l3t2() {
     fun();
 
     if (arr.length >= 1) {
-      resultText.innerHTML = 'Ну вот такой вот массив получился: <br> [';
+      resultText.innerHTML = "Ну вот такой вот массив получился: <br> [";
       for (let i = 0; i < arr.length; i++) {
         if (i < arr.length - 1) {
           resultText.innerHTML += `${arr[i]}, `;
@@ -341,12 +342,17 @@ function l3t3() {
     [5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
     [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
   ];
 
-  resultText.innerHTML = 'Имеем массив: <br>';
+  let maxSum = 0;
+  let x;
+  let minSum = Infinity;
+  let y;
+
+  resultText.innerHTML = "Имеем массив: <br>";
   for (let i = 0; i < a.length; i++) {
-    resultText.innerHTML += `<br> (i${i}) [`
+    resultText.innerHTML += `<br> (i${i}) [`;
     for (let j = 0; j < a[i].length; j++) {
       if (j < a[i].length - 1) {
         resultText.innerHTML += `${a[i][j]}, `;
@@ -361,24 +367,32 @@ function l3t3() {
     for (let j = 0; j < a[i].length; j++) {
       sum += a[i][j];
     }
-    a[i] = sum;
-  }
-  let maxSum = 0;
-  let x;
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] > maxSum) {
-      maxSum = a[i]
+    if (maxSum < sum) {
+      maxSum = sum;
       x = i;
     }
-  }
-  let minSum = maxSum;
-  let y
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] < minSum) {
-      minSum = a[i]
+
+    if (minSum > sum) {
+      minSum = sum;
       y = i;
     }
   }
+  // let maxSum = 0;
+  // let x;
+  // for (let i = 0; i < a.length; i++) {
+  //   if (a[i] > maxSum) {
+  //     maxSum = a[i];
+  //     x = i;
+  //   }
+  // }
+  // let minSum = maxSum;
+  // let y;
+  // for (let i = 0; i < a.length; i++) {
+  //   if (a[i] < minSum) {
+  //     minSum = a[i];
+  //     y = i;
+  //   }
+  // }
 
   resultText.innerHTML += `<br>Минимальная сумма чисел: ${minSum} в массиве с индексом ${y} <br> Максимальная сумма чисел: ${maxSum} в массиве с индексом ${x} `;
   openResult();
@@ -391,11 +405,11 @@ function l4t1() {
   for (let i = 0; i < arr.length; i++) {
     let checker = [...`${arr[i]}`];
     if (checker[0] == 1 || checker[0] == 2 || checker[0] == 5) {
-      result.push(arr[i])
+      result.push(arr[i]);
     }
   }
 
-  resultText.innerHTML = 'Получаем: <br> [';
+  resultText.innerHTML = "Получаем: <br> [";
   for (let i = 0; i < result.length; i++) {
     if (i < result.length - 1) {
       resultText.innerHTML += `${result[i]}, `;
@@ -408,7 +422,7 @@ function l4t1() {
 
 function l4t2() {
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  let result = '-';
+  let result = "-";
   for (let i = 0; i < arr.length; i++) {
     result += `${arr[i]}-`;
   }
@@ -417,14 +431,29 @@ function l4t2() {
 }
 
 function l4t3() {
-  let week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  let weekRu = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+  let week = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  let weekRu = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+  ];
   resultText.innerHTML = "Вот так будут дни недели на английском: <br>";
   for (let i = 0; i < 7; i++) {
-    if (week[i] == 'Saturday' || week[i] == 'Sunday') {
+    if (week[i] == "Saturday" || week[i] == "Sunday") {
       resultText.innerHTML += `<span style="color:lightcoral"><b>${week[i]} - ${weekRu[i]}</b></span>  <br>`;
     } else {
-
       resultText.innerHTML += `${week[i]} - ${weekRu[i]} <br>`;
     }
   }
@@ -432,11 +461,19 @@ function l4t3() {
 }
 
 function l4t4() {
-  let weekRu = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+  let weekRu = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+  ];
   let date = new Date();
-  let day = (weekRu[date.getDay() - 1]);
+  let day = weekRu[date.getDay() - 1];
   console.log(day);
-  resultText.innerHTML = 'Сегодня: <br><br>';
+  resultText.innerHTML = "Сегодня: <br><br>";
   for (let i = 0; i < 7; i++) {
     if (weekRu[i] == day) {
       resultText.innerHTML += `- <span style="color:rgb(136, 255, 0)"><i>${weekRu[i]}</i></span> - <br>`;
@@ -452,9 +489,9 @@ function l4t5() {
   let res = n;
   let num = 0;
 
-  for (let i;; i++) {
+  for (let i; ; i++) {
     if (res < 50) {
-      break
+      break;
     } else {
       res = res / 2;
       num++;
