@@ -168,6 +168,7 @@ h6 {
   border: 3px solid rgb(136, 255, 0);
   border-radius: 30px;
   transition: all 0.3s ease 0s;
+  cursor: pointer;
 }
 
 .task:hover {

@@ -4,9 +4,12 @@ const resultExit = document.querySelector('.result__button');
 const resultBody = document.querySelector('.page__result');
 const resultText = document.getElementById('result_text');
 
-resultExit.addEventListener("click", function(e) {
+resultExit.addEventListener("click", function (e) {
   closeResult()
 });
+// resultBody.addEventListener("click", function (e) {
+//   closeResult()
+// });
 
 function openResult() {
   document.body.classList.add('_lock');
@@ -18,19 +21,23 @@ function closeResult() {
   resultBody.classList.remove('result_active');
 }
 
-//------------------------------------------------------
+//LESSON 1------------------------------------------
 
 function l1t1() {
   alert("Сейчас выполним, не ссы");
   let a = prompt("Введите количество дней что бы узнать сколько же там секунд");
   let b = a * 24 * 60 * 60;
-  alert("Ты ввел " + a + " и там " + b + " секунд");
+  // alert("Ты ввел " + a + " и там " + b + " секунд");
+  resultText.innerHTML = `Ты ввел ${a} и там ${b} секунд`;
+  openResult();
 }
 
 function l1t2() {
   let a = prompt("Сейчас мы узнает квадрат числа");
   let b = a * a;
-  alert(a + " в квадрате равно " + b);
+  // alert(a + " в квадрате равно " + b);
+  resultText.innerHTML = ` ${a} в квадрате равно ${b}`;
+  openResult();
 }
 
 function l1t3() {
@@ -45,7 +52,9 @@ function l1t3() {
   let result = sum / [x, y, z, k].length;
 
   // let result = (x + y + z + k) / 4;
-  alert("Среднее арифметическое будет " + result);
+  // alert("Среднее арифметическое будет " + result);
+  resultText.innerHTML = `Среднее арифметическое будет равно ${result}`;
+  openResult();
 }
 
 function l1t4() {
@@ -53,17 +62,21 @@ function l1t4() {
   let y = parseInt(prompt("Введите длину второго катета"));
   let s = (x * y) / 2;
   let p = Math.sqrt(x * x + y * y) + x + y;
-  alert(
-    "Площадь прямогульного треугольника со сторонами X: " +
-    x +
-    " и Y: " +
-    y +
-    " равна " +
-    s +
-    " , а его периметр: " +
-    Math.round(p)
-  );
+  // alert(
+  //   "Площадь прямогульного треугольника со сторонами X: " +
+  //   x +
+  //   " и Y: " +
+  //   y +
+  //   " равна " +
+  //   s +
+  //   " , а его периметр: " +
+  //   Math.round(p)
+  // );
+  resultText.innerHTML = `Площадь прямогульного треугольника со сторонами X: ${x} и Y: ${y} равна ${s} , а его периметр: ${Math.round(p)}`;
+  openResult();
 }
+
+//LESSON 2------------------------------------------
 
 function l2t1() {
   function script(login) {
@@ -78,7 +91,9 @@ function l2t1() {
         } else if (pass != "qwerty") {
           alert("Пароль неверен");
         } else if (pass == "qwerty") {
-          alert("ПРИВЕТ!");
+          // alert("ПРИВЕТ!");
+          resultText.innerHTML = 'Привет!';
+          openResult();
         }
       }
       password((pass = prompt("Введите пароль")));
@@ -98,7 +113,9 @@ function l2t2() {
     } else {
       let sum = [a, b, c].reduce((a, b) => a + b, 0);
       let result = sum / [a, b, c].length;
-      alert("Среднее арифметическое будет " + result);
+      // alert("Среднее арифметическое будет " + result);
+      resultText.innerHTML = `Среднее арифметическое будет: ${result} `;
+      openResult();
     }
   }
   script();
@@ -138,7 +155,9 @@ function l2t4() {
     a = b;
     b = fib;
   }
-  alert("Число Фибоначчи №" + n + " : " + a);
+  // alert("Число Фибоначчи №" + n + " : " + a);
+  resultText.innerHTML = `Число Фибоначчи № ${n} : ${a}`;
+  openResult();
 }
 
 function l2t5() {
@@ -149,25 +168,27 @@ function l2t5() {
   if (a == b) {
     alert("Условия не выполнены !!!");
   } else if (a < b) {
-    // for (let i = a + 1; i < b; i++) { // между А и В
     for (let i = a; i <= b; i++) {
-      //включительно от А до В
       sum = sum + i;
       if (i % 2 != 0) {
         odd.push(i);
       }
     }
-    // alert('Сумма чисел между ' + a + ' и ' + b + ' равняется ' + sum +'а вот все нечетные значения в этом промежутке : ' + odd); // между А и В
-    alert(
-      "Сумма чисел от " +
-      a +
-      " до " +
-      b +
-      " включительно равняется " +
-      sum +
-      " . А вот все нечетные значения в этом промежутке : " +
-      odd
-    ); //включительно от А до В
+    // alert(
+    //   "Сумма чисел от " +
+    //   a +
+    //   " до " +
+    //   b +
+    //   " включительно равняется " +
+    //   sum +
+    //   " . А вот все нечетные значения в этом промежутке : " +
+    //   odd
+    // );
+    resultText.innerHTML = `Сумма чисел от ${a} до ${b} включительно равняется ${sum} . А вот все нечетные значения в этом промежутке : <br>`;
+    for (let i = 0; i < odd.length; i++) {
+      resultText.innerHTML += `${odd[i]}, `;
+    }
+    openResult();
   } else {
     for (let i = b; i <= a; i++) {
       sum = sum + i;
@@ -175,16 +196,21 @@ function l2t5() {
         odd.push(i);
       }
     }
-    alert(
-      "Сумма чисел от " +
-      b +
-      " до " +
-      a +
-      " включительно равняется " +
-      sum +
-      " . А вот все нечетные значения в этом промежутке : " +
-      odd
-    );
+    // alert(
+    //   "Сумма чисел от " +
+    //   b +
+    //   " до " +
+    //   a +
+    //   " включительно равняется " +
+    //   sum +
+    //   " . А вот все нечетные значения в этом промежутке : " +
+    //   odd
+    // );
+    resultText.innerHTML = `Сумма чисел от ${b} до ${a} включительно равняется ${sum} . А вот все нечетные значения в этом промежутке : <br>`;
+    for (let i = 0; i < odd.length; i++) {
+      resultText.innerHTML += `${odd[i]}, `;
+    }
+    openResult();
   }
 }
 
@@ -229,12 +255,19 @@ function l2t6() {
     //   }
     // }
 
-    alert("Вот ваши простые числа : " + arr);
+    // alert("Вот ваши простые числа : " + arr);
+    resultText.innerHTML = 'Вот ваши простые числа : <br>';
+    for (let i = 0; i < arr.length; i++) {
+      resultText.innerHTML += `${arr[i]}, `;
+    }
+    openResult();
+
   } else {
     alert("Шутишь ?");
   }
 }
 
+//LESSON 3------------------------------------------
 
 function l3t1() {
   let a = [23, 2, 35, 6, 5, 87, 22, 45, 8, 98, 45, 68, 75, 45, 6, 9, 78, 7, 8];
@@ -277,16 +310,17 @@ function l3t2() {
         let a = +prompt(`введите ${i+1}-е число`);
         if (isNaN(a) || a < 0) {
           alert('не подходит');
-          fun()
-          break
+          fun();
+          break;
         } else {
-          arr.push(a)
-          i++
-          counter=i
+          arr.push(a);
+          i++;
+          counter = i;
         }
       }
     }
-    fun()
+    fun();
+
     if (arr.length >= 1) {
       resultText.innerHTML = 'Ну вот такой вот массив получился: <br> [';
       for (let i = 0; i < arr.length; i++) {
@@ -296,13 +330,141 @@ function l3t2() {
           resultText.innerHTML += `${arr[i]}]`;
         }
       }
-      openResult()
+      openResult();
     }
   }
 }
 
+function l3t3() {
+  let a = [
+    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    [5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  ];
 
+  resultText.innerHTML = 'Имеем массив: <br>';
+  for (let i = 0; i < a.length; i++) {
+    resultText.innerHTML += `<br> (i${i}) [`
+    for (let j = 0; j < a[i].length; j++) {
+      if (j < a[i].length - 1) {
+        resultText.innerHTML += `${a[i][j]}, `;
+      } else {
+        resultText.innerHTML += `${a[i][j]}] <br>`;
+      }
+    }
+  }
 
+  for (let i = 0; i < a.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < a[i].length; j++) {
+      sum += a[i][j];
+    }
+    a[i] = sum;
+  }
+  let maxSum = 0;
+  let x;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] > maxSum) {
+      maxSum = a[i]
+      x = i;
+    }
+  }
+  let minSum = maxSum;
+  let y
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] < minSum) {
+      minSum = a[i]
+      y = i;
+    }
+  }
+
+  resultText.innerHTML += `<br>Минимальная сумма чисел: ${minSum} в массиве с индексом ${x} <br> Максимальная сумма чисел: ${maxSum} в массиве с индексом ${y} `;
+  openResult();
+}
+//LESSON 4------------------------------------------
+
+function l4t1() {
+  let arr = [10, 20, 30, 50, 235, 3000];
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let checker = [...`${arr[i]}`];
+    if (checker[0] == 1 || checker[0] == 2 || checker[0] == 5) {
+      result.push(arr[i])
+    }
+  }
+
+  resultText.innerHTML = 'Получаем: <br> [';
+  for (let i = 0; i < result.length; i++) {
+    if (i < result.length - 1) {
+      resultText.innerHTML += `${result[i]}, `;
+    } else {
+      resultText.innerHTML += `${result[i]}]`;
+    }
+  }
+  openResult();
+}
+
+function l4t2() {
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let result = '-';
+  for (let i = 0; i < arr.length; i++) {
+    result += `${arr[i]}-`;
+  }
+  resultText.innerHTML = result;
+  openResult();
+}
+
+function l4t3() {
+  let week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  let weekRu = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+  resultText.innerHTML = "Вот так будут дни недели на английском: <br>";
+  for (let i = 0; i < 7; i++) {
+    if (week[i] == 'Saturday' || week[i] == 'Sunday') {
+      resultText.innerHTML += `<span style="color:lightcoral"><b>${week[i]} - ${weekRu[i]}</b></span>  <br>`;
+    } else {
+
+      resultText.innerHTML += `${week[i]} - ${weekRu[i]} <br>`;
+    }
+  }
+  openResult();
+}
+
+function l4t4() {
+  let weekRu = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+  let date = new Date();
+  let day = (weekRu[date.getDay() - 1]);
+  console.log(day);
+  resultText.innerHTML = 'Сегодня: <br><br>';
+  for (let i = 0; i < 7; i++) {
+    if (weekRu[i] == day) {
+      resultText.innerHTML += `- <span style="color:rgb(136, 255, 0)"><i>${weekRu[i]}</i></span> - <br>`;
+    } else {
+      resultText.innerHTML += `${weekRu[i]} <br>`;
+    }
+  }
+  openResult();
+}
+
+function l4t5() {
+  let n = 1000;
+  let res = n;
+  let num = 0;
+
+  for (let i;; i++) {
+    if (res < 50) {
+      break
+    } else {
+      res = res / 2;
+      num++;
+    }
+  }
+  console.log(res);
+  console.log(num);
+  resultText.innerHTML = `Что бы получить результат деления меньше 50 число n=${n} поделить на 2 нужно ${num} раз. А результат в итоге будет равен ${res} `;
+  openResult();
+}
 
 function l0t0() {
   alert("ЕЩЕ НЕ ДЕЛАЛ");
